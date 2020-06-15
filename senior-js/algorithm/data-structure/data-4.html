@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>4.如何完成线性表结构下的增删查 | 一只无聊的柠檬</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/img/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.3c3b5dfb.css" as="style"><link rel="preload" href="/assets/js/app.5e508a01.js" as="script"><link rel="preload" href="/assets/js/2.cff21c2a.js" as="script"><link rel="preload" href="/assets/js/13.3dbfd97d.js" as="script"><link rel="prefetch" href="/assets/js/10.edf411cf.js"><link rel="prefetch" href="/assets/js/11.66867f42.js"><link rel="prefetch" href="/assets/js/12.669a53ed.js"><link rel="prefetch" href="/assets/js/14.b267b2bf.js"><link rel="prefetch" href="/assets/js/15.d4437b90.js"><link rel="prefetch" href="/assets/js/16.18366c98.js"><link rel="prefetch" href="/assets/js/17.37f0cd3d.js"><link rel="prefetch" href="/assets/js/18.0dae2582.js"><link rel="prefetch" href="/assets/js/19.aea1d9ea.js"><link rel="prefetch" href="/assets/js/20.13493450.js"><link rel="prefetch" href="/assets/js/21.b170d57a.js"><link rel="prefetch" href="/assets/js/22.5d195c25.js"><link rel="prefetch" href="/assets/js/23.a2cd02a2.js"><link rel="prefetch" href="/assets/js/24.4027c2b9.js"><link rel="prefetch" href="/assets/js/25.598da124.js"><link rel="prefetch" href="/assets/js/3.120401d0.js"><link rel="prefetch" href="/assets/js/4.d4d02f50.js"><link rel="prefetch" href="/assets/js/5.1a330dfd.js"><link rel="prefetch" href="/assets/js/6.e8d1a027.js"><link rel="prefetch" href="/assets/js/7.df0dced7.js"><link rel="prefetch" href="/assets/js/8.bd94ea9c.js"><link rel="prefetch" href="/assets/js/9.b8dec39f.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3c3b5dfb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一只无聊的柠檬</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/senior-js/guide/" class="nav-link">
+  工作总结
+</a></div><div class="nav-item"><a href="/senior-js/algorithm/" class="nav-link router-link-active">
+  自学记录
+</a></div><div class="nav-item"><a href="/senior-js/readDoc/" class="nav-link">
+  读书笔记
+</a></div><div class="nav-item"><a href="/senior-js/other/" class="nav-link">
+  杂谈
+</a></div><div class="nav-item"><a href="https://github.com/fanyuyingbest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/senior-js/guide/" class="nav-link">
+  工作总结
+</a></div><div class="nav-item"><a href="/senior-js/algorithm/" class="nav-link router-link-active">
+  自学记录
+</a></div><div class="nav-item"><a href="/senior-js/readDoc/" class="nav-link">
+  读书笔记
+</a></div><div class="nav-item"><a href="/senior-js/other/" class="nav-link">
+  杂谈
+</a></div><div class="nav-item"><a href="https://github.com/fanyuyingbest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/senior-js/algorithm/" class="sidebar-link">知识体系梳理</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>2020年</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/senior-js/algorithm/data-structure/" class="sidebar-heading clickable router-link-active open"><span>数据结构</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/senior-js/algorithm/data-structure/data-1.html" class="sidebar-link">1.复杂度：如何衡量程序运行的效率？</a></li><li><a href="/senior-js/algorithm/data-structure/data-2.html" class="sidebar-link">2.数据结构：时间复杂度👉空间复杂度</a></li><li><a href="/senior-js/algorithm/data-structure/data-3.html" class="sidebar-link">3.增删查：掌握数据结构基本操作</a></li><li><a href="/senior-js/algorithm/data-structure/data-4.html" class="active sidebar-link">4.如何完成线性表结构下的增删查</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_4-如何完成线性表结构下的增删查"><a href="#_4-如何完成线性表结构下的增删查" class="header-anchor">#</a> 4.如何完成线性表结构下的增删查</h1> <h3 id="_4-1-主要内容"><a href="#_4-1-主要内容" class="header-anchor">#</a> 4-1 主要内容</h3> <ul><li>线性表是什么</li> <li>线性表对于数据的增删查处理</li> <li>线性表的一些案例</li></ul> <blockquote><p>通过之前的学习，我们了解了，数据在代码中处理和加工的最小单位动作是增、删、查<br></p></blockquote> <h3 id="_4-2-什么是数据结构"><a href="#_4-2-什么是数据结构" class="header-anchor">#</a> 4-2 什么是数据结构</h3> <blockquote><p>数据结构就是数据的组织方式，在数据结构适用的场合中，需要一定量的数据<br>
+但计算机要处理大量数据时，同样需要考虑如何去组织这些数据，这就是数据结构(如小朋友站队方式：横排，列，圈)<br></p></blockquote> <h3 id="_4-3-什么是线性表"><a href="#_4-3-什么是线性表" class="header-anchor">#</a> 4-3 什么是线性表</h3> <blockquote><p>线性表是n个数据元素的有限序列，最常用的是链式表达，通常也叫做线性链表或者链表<br>
+在链表中存储的数据元素也叫做结点，一个结点存储的就是一条数据记录，每个结点的结构包括两个部分<br></p></blockquote> <ul><li>第一是具体的数据值</li> <li>第二是指向下一个结点的指针</li></ul> <blockquote><p>在链表的最前面，通常会有一个头指针来指向第一个结点<br>
+对于链表的最后一个结点，由于在它之后没有下一个结点，因此它是空指针<br>
+链表结构，和小朋友手拉手站成一排的场景很相似</p></blockquote> <p><img src="/img/2020/algorithm/data4-1.png" alt="图示"></p> <blockquote><p>上图可以看出，链表只能通过上一个结点的指针找到下一个结点，反过来行不通，这种就是单向链表</p></blockquote> <blockquote><p>有时候我们为了弥补这种不足，可以对结点的结构进行改造：</p></blockquote> <ul><li>对于一个单向链表，让最后一个元素的指针指向第一个元素，就得到了循环链表；</li> <li>或者把结点的结构进行改造，再增加一个指向上一个结点的指针，这样就得到一个双向链表</li> <li>同样，还可以在双向链表的基础上和循环链表进行融合，就得到了双向循环链表</li></ul> <p><img src="/img/2020/algorithm/data4-2.png" alt="图示"></p> <blockquote><p>这些种类的链表，都是单向链表为基础进行的变种。在某些场景下能提高线性表的效率</p></blockquote> <h3 id="_4-4-线性表对于数据的增删查处理"><a href="#_4-4-线性表对于数据的增删查处理" class="header-anchor">#</a> 4-4 线性表对于数据的增删查处理</h3> <h4 id="_4-4-1-增加"><a href="#_4-4-1-增加" class="header-anchor">#</a> 4-4-1 增加</h4> <blockquote><p>例子：有一个链表，存储了10个同学的考试成绩，现在有一个同学被忘记存储了，要怎么进行？<br>
+做法：只需要把待插入的结点的指针指向原指针的目标，把原来的指针指向插入的结点</p></blockquote> <p><img src="/img/2020/algorithm/data4-3.png" alt="图示"></p> <blockquote><p>代码如下：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> s.next = p.next;
+ p.next = s
+
+</code></pre></div><h4 id="_4-4-2-删除"><a href="#_4-4-2-删除" class="header-anchor">#</a> 4-4-2 删除</h4> <blockquote><p>删除操作：链表的删除和新增一样，如果待删除的结点为b，只需要把b的指针(p.next),指向b的指针指向的结点（p.next.next）<br></p></blockquote> <blockquote><p>代码如下：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> p.next = p.next.next;
+
+</code></pre></div><h4 id="_4-4-3-查找"><a href="#_4-4-3-查找" class="header-anchor">#</a> 4-4-3 查找</h4> <ul><li>第一种情况按照位置序号来查找</li></ul> <blockquote><p>这种和数组中的index非常类似，查出学号为5的同学，考试成绩是多少？<br>
+链表的查找功能很弱，所以只能一个一个遍历查找</p></blockquote> <ul><li>第二种情况按照具体成绩查询</li></ul> <blockquote><p>查找出是否有同学成绩为95？<br>
+链表的价值在于用指针按照顺序连接了数据结点，但对每个结点的数值没有做任何整合，所以只能按照先后顺序遍历<br>
+所以解决办法：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  1、如果是，则返回有人得分为95
+  2、如果不是，则需要通过指针去判断下一个结点的值是否为95，以此类推，直到所有结点被访问完
+</code></pre></div><blockquote><p>虽然链表在新增删除数据上有优势，但仔细就发现，这个优势不实用<br>
+主要是因为，在新增数据时，通常会伴随查找动作；例如：在第五个结点之后新增一个数据结点，就需要执行两个步骤：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> 第一步：查找第五个结点
+ 第二步：新增结点，所以整体的复杂度为O(n) + O(1) = O(n)
+
+</code></pre></div><blockquote><p>如果数据元素个数不确定，删除插入的操作并不多，那么数组可能更适合</p></blockquote> <h3 id="_4-5-线性表案例"><a href="#_4-5-线性表案例" class="header-anchor">#</a> 4-5 线性表案例</h3> <h4 id="_4-5-1-第一个例子：链表的翻转"><a href="#_4-5-1-第一个例子：链表的翻转" class="header-anchor">#</a> 4-5-1 第一个例子：链表的翻转</h4> <blockquote><p>给定一个链表，输出翻转后的链表，例如输入1-&gt;2-&gt;3-&gt;4-&gt;5,输出5-&gt;4-&gt;3-&gt;2-&gt;1<br></p></blockquote> <ul><li>如果是数组翻转，会比较容易；数组在连续空间进行存储，可以直接求解出数组的长度；而且数组可以通过索引值去查找元素，然后对相应的数据进行交换操作而完成翻转</li> <li>但对于单个单向链表，它的指针是有去无回的，一旦修改了某元素的指针，后面的元素就会造成失联状态，为解决这个问题，需要构造三个指针prev,curr,next,对当前结点、以及它之前和之后的结点进行缓存，再完成翻转，具体代码如下</li></ul> <div class="language- extra-class"><pre class="language-text"><code> while(curr){
+   next = curr.next;
+   curr.next = prev;
+   prev = curr;
+   curr = next
+ }
+</code></pre></div><p><img src="/img/2020/algorithm/data5-1.gif" alt="图示"></p> <h4 id="_4-5-2-第二个例子：查出链表中间位置结点的数值"><a href="#_4-5-2-第二个例子：查出链表中间位置结点的数值" class="header-anchor">#</a> 4-5-2 第二个例子：查出链表中间位置结点的数值</h4> <blockquote><p>这个例子，也是利用了链表的长度无法或缺的不足做的文章，解决办法如下：</p></blockquote> <ul><li>一个暴力的办法是，先通过一次遍历去计算链表长度，这样我们就知道链表中间位置是第几个。接着再通过一次遍历去查找这个位置的数值</li> <li>除此之外，还有一个巧妙的办法，就是利用快慢指针进行处理。其中快指针每次循环往后跳转两次，而慢指针每次向后跳转一次</li></ul> <p><img src="/img/2020/algorithm/data5-2.gif" alt="图示"></p> <div class="language- extra-class"><pre class="language-text"><code> while(fast &amp;&amp; fast.next &amp;&amp; fast.next.next){
+   fast = fast.next.next;
+   slow = fast.next;
+ }
+</code></pre></div><h4 id="_4-5-3-第三个例子：判断链表是否有环"><a href="#_4-5-3-第三个例子：判断链表是否有环" class="header-anchor">#</a> 4-5-3 第三个例子：判断链表是否有环</h4> <blockquote><p>链表的快慢指针的方法，在很多链表操作的场景下都非常适用<br>
+假如链表有环，这个环就像一个跑步赛道，多次循环，快指针和慢指针都会进入到赛道中，相对而言，快指针每循环会多走一步<br>
+这就意味着</p></blockquote> <ul><li>如果链表存在环，快指针和慢指针一定会在环内相遇，即fast === slow的情况一定会发生</li> <li>反之，则最终会完成循环，二者从未相遇</li></ul> <p><img src="/img/2020/algorithm/data5-4.gif" alt="图示"></p> <h3 id="_4-6-总结"><a href="#_4-6-总结" class="header-anchor">#</a> 4-6 总结</h3> <ul><li>本节主要围绕线性链表原理、以及线性表对数据的增删查操作；线性链表结构的每个结点，由数据的数值指向下一个元素的指针构成</li> <li>链表在增、删方面比较容易实现，可以在O(1)的时间复杂度完成，但对于查找，不论是按位置还是按照数值，都是需要全部遍历</li> <li>线性表的价值在于，它对数据的存储都是按照顺序存储。当数据元素不确定，且经常对数据做增删操作时，链表会比较合适。</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/senior-js/algorithm/data-structure/data-3.html" class="prev">
+        3.增删查：掌握数据结构基本操作
+      </a></span> <!----></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.5e508a01.js" defer></script><script src="/assets/js/2.cff21c2a.js" defer></script><script src="/assets/js/13.3dbfd97d.js" defer></script>
+  </body>
+</html>
