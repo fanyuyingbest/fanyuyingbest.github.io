@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>10.哈希表：高效率查找的利器 | 一只无聊的柠檬</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/img/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.3c3b5dfb.css" as="style"><link rel="preload" href="/assets/js/app.381556e0.js" as="script"><link rel="preload" href="/assets/js/2.cff21c2a.js" as="script"><link rel="preload" href="/assets/js/11.785dc606.js" as="script"><link rel="prefetch" href="/assets/js/10.61315b7e.js"><link rel="prefetch" href="/assets/js/12.73541871.js"><link rel="prefetch" href="/assets/js/13.50118ef8.js"><link rel="prefetch" href="/assets/js/14.8137b077.js"><link rel="prefetch" href="/assets/js/15.aac26ef4.js"><link rel="prefetch" href="/assets/js/16.242c7db9.js"><link rel="prefetch" href="/assets/js/17.eba92d50.js"><link rel="prefetch" href="/assets/js/18.3a8094b7.js"><link rel="prefetch" href="/assets/js/19.4c82e059.js"><link rel="prefetch" href="/assets/js/20.bc4451e3.js"><link rel="prefetch" href="/assets/js/21.1ab69451.js"><link rel="prefetch" href="/assets/js/22.512b1d68.js"><link rel="prefetch" href="/assets/js/23.1d09530d.js"><link rel="prefetch" href="/assets/js/24.0263cbba.js"><link rel="prefetch" href="/assets/js/25.64dce5d9.js"><link rel="prefetch" href="/assets/js/26.1ecaa0ba.js"><link rel="prefetch" href="/assets/js/27.cc2f76b2.js"><link rel="prefetch" href="/assets/js/28.89c1c1d7.js"><link rel="prefetch" href="/assets/js/29.e863a98e.js"><link rel="prefetch" href="/assets/js/3.01d9f5e2.js"><link rel="prefetch" href="/assets/js/30.a1e48a7a.js"><link rel="prefetch" href="/assets/js/31.61a37d84.js"><link rel="prefetch" href="/assets/js/32.fefd5091.js"><link rel="prefetch" href="/assets/js/33.9114a9d7.js"><link rel="prefetch" href="/assets/js/4.d4d02f50.js"><link rel="prefetch" href="/assets/js/5.4151717a.js"><link rel="prefetch" href="/assets/js/6.f4a5732b.js"><link rel="prefetch" href="/assets/js/7.a96f0b5c.js"><link rel="prefetch" href="/assets/js/8.96f3fcea.js"><link rel="prefetch" href="/assets/js/9.a7968e72.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3c3b5dfb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一只无聊的柠檬</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/senior-js/guide/" class="nav-link">
+  工作总结
+</a></div><div class="nav-item"><a href="/senior-js/algorithm/" class="nav-link router-link-active">
+  自学记录
+</a></div><div class="nav-item"><a href="/senior-js/readDoc/" class="nav-link">
+  读书笔记
+</a></div><div class="nav-item"><a href="/senior-js/other/" class="nav-link">
+  杂谈
+</a></div><div class="nav-item"><a href="https://github.com/fanyuyingbest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/senior-js/guide/" class="nav-link">
+  工作总结
+</a></div><div class="nav-item"><a href="/senior-js/algorithm/" class="nav-link router-link-active">
+  自学记录
+</a></div><div class="nav-item"><a href="/senior-js/readDoc/" class="nav-link">
+  读书笔记
+</a></div><div class="nav-item"><a href="/senior-js/other/" class="nav-link">
+  杂谈
+</a></div><div class="nav-item"><a href="https://github.com/fanyuyingbest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/senior-js/algorithm/" class="sidebar-link">知识体系梳理</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>2020年</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/senior-js/algorithm/data-structure/" class="sidebar-heading clickable router-link-active open"><span>数据结构</span> <span class="arrow down"></span></a> <ul class="sidebar-links sidebar-group-items"><li><a href="/senior-js/algorithm/data-structure/data-1.html" class="sidebar-link">1.复杂度：如何衡量程序运行的效率？</a></li><li><a href="/senior-js/algorithm/data-structure/data-2.html" class="sidebar-link">2.数据结构：时间复杂度👉空间复杂度</a></li><li><a href="/senior-js/algorithm/data-structure/data-3.html" class="sidebar-link">3.增删查：掌握数据结构基本操作</a></li><li><a href="/senior-js/algorithm/data-structure/data-4.html" class="sidebar-link">4.如何完成线性表结构下的增删查</a></li><li><a href="/senior-js/algorithm/data-structure/data-5.html" class="sidebar-link">5.栈：后进先出线性表实现增删查</a></li><li><a href="/senior-js/algorithm/data-structure/data-6.html" class="sidebar-link">6.队列：先进先出线性表实现增删查</a></li><li><a href="/senior-js/algorithm/data-structure/data-7.html" class="sidebar-link">7.数组：如何实现基本索引的查找</a></li><li><a href="/senior-js/algorithm/data-structure/data-8.html" class="sidebar-link">8.字符串：解决字符串匹配算法</a></li><li><a href="/senior-js/algorithm/data-structure/data-9.html" class="sidebar-link">9.树和二叉树：如何实现增删改查</a></li><li><a href="/senior-js/algorithm/data-structure/data-10.html" class="active sidebar-link">10.哈希表：高效率查找的利器</a><ul class="sidebar-sub-headers"></ul></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/senior-js/algorithm/training/" class="sidebar-heading clickable"><span>每日一题</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="_10-哈希表：高效率查找的利器"><a href="#_10-哈希表：高效率查找的利器" class="header-anchor">#</a> 10.哈希表：高效率查找的利器</h1> <ul><li>线性表中的栈和队列对增删有严格要求，他们会更关注数据的顺序</li> <li>数组和字符串需要保持数据类型的统一，并且在基于索引的查找会更有优势</li> <li>树的优势则体现在数据的层次结构上</li></ul> <blockquote><p>他们普遍都存在这样的缺陷，就是数据树值条件的查找，都需要对全部数据或部分数据进行遍历。那么，有没有一种可以省去数据比较过程，从而进一步提升树值条件查找效率？这一课就来介绍这样一种高效率查找神奇，哈希表。</p></blockquote> <h3 id="_10-1-什么是哈希表"><a href="#_10-1-什么是哈希表" class="header-anchor">#</a> 10-1 什么是哈希表</h3> <blockquote><p>哈希表源于Hash,也可以叫做散列表。哈希表是一种特殊的数据结构，它与数组、链表以及树等我们之前学过的数据结构相比，很明显有区别。</p></blockquote> <h3 id="_10-1-哈希表的核心思想"><a href="#_10-1-哈希表的核心思想" class="header-anchor">#</a> 10-1 哈希表的核心思想</h3> <blockquote><p>在之前学习的数据结构里，数据存储位置和数据的具体数值之间不存在任何关系，在面对查找问题时，这些数据必须采取逐一比较的方法去实现</p></blockquote> <blockquote><p>哈希表的设计采用的是函数映射的思想，将记录的存储位置与记录的关键字关联起来，这样的设计方式，能够快速定位想要查找的记录，而且不需要与表中存在的记录关键字比较后再进行查找</p></blockquote> <blockquote><p>数组的查找，是通过数据索引值(index)来取值的，例如要找出a数组中，索引值为1的元素，可以直接用a[1]取出这个数据，通过这样的方式，就实现了‘地址 = f(index)’的映射关系</p></blockquote> <blockquote><p>如果用哈希表的逻辑来理解的话，这里的f()就是一个哈希函数。它完成了索引值到司机地址的映射，这就让数组可以快速完成基于索引值的查找。然而局限性在于，它只能基于数据的索引值去查找，而不能基于数据的数值去查找。</p></blockquote> <p>如果有一种方法，可以实现‘地址 = f(关键字)’的映射关系，那么就可以快速完成基于数据的数值的查找了，这就是哈希表的核心思想</p> <blockquote><p>假如，我们要对一个手机通讯录进行存储，并根据姓名查找一个人的手机号码，如下所示：<br>
+张一：155555555<br>
+张二：166666666<br>
+张三：177777777<br>
+张四：188888888<br></p></blockquote> <blockquote><p>一个可行的方法就是，定义包含姓名、手机号码的结构体，再通过链表把4个联系人的信息存起来；当判断‘张四’是否在链表中，或想查看手机号时，就需要从链表的头结点开始遍历。依次将每个结点中的姓名字段，同‘张四’进行比较。直到查找成功或者全部遍历一次位置，这种做法的时间复杂度为O(n)</p></blockquote> <blockquote><p>如果要降低时间复杂度，就需要借助哈希表的思路，构建姓名到地址映射函数‘地址=f(姓名)’，这样我们就可以通过函数直接计算出‘张四’的存储位置，在O(1)时间复杂度内就可以完成数据的查找。</p></blockquote> <blockquote><p>通过这个例子，不难看出Hash函数设计的好坏会直接影响到对哈希表的操作效率，假如对上面的例子采用Hash为，姓名每个字的拼音开头大写字母的ASCII码之和</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  address (张一) = ASCII (Z) + ASCII (Y) = 90 + 89 = 179；
+
+  address (张二) = ASCII (Z) + ASCII (E) = 90 + 69 = 159；
+
+  address (张三) = ASCII (Z) + ASCII (S) = 90 + 83 = 173；
+
+  address (张四) = ASCII (Z) + ASCII (S) = 90 + 83 = 173；
+
+</code></pre></div><blockquote><p>有一个致命问题，就是f(张三)和f(张四)都是173，这种现象称作哈希冲突，是需要在设计哈希函数时进行规避的</p></blockquote> <blockquote><p>本质上，哈希冲突只能尽可能的减少，不能完全避免。这是因为输入的关键字是个开放集合。只要输入的数据量够多，分布够广，就完全可能发生冲突。因此哈希表需要设计合理的哈希函数，并且对冲突有一套处理机制。</p></blockquote> <h3 id="_10-2-如何设计哈希函数"><a href="#_10-2-如何设计哈希函数" class="header-anchor">#</a> 10-2 如何设计哈希函数</h3> <ul><li>直接定制法</li></ul> <blockquote><p>哈希函数为关键字到地址的线性函数。如，H(key) =  a*key + b 这里的a和b最好设置函数</p></blockquote> <ul><li>数字分析法</li></ul> <blockquote><p>假设关键字集合中的每个关键字key都是由s位数字组成(k1,k2,...ks),并从中提取分布均匀的若干位组成哈希地址</p></blockquote> <ul><li>平方取中法</li></ul> <blockquote><p>如果关键字的每一位都有某些数字重复出现，并且频率很高，我们就先求关键字的平方值，通过平方扩大差异，然后取中间几位作为最终存储地址</p></blockquote> <ul><li>折叠法</li></ul> <blockquote><p>如果关键字的位数很多，可以将关键字分割位几个等长的部分，取他们的叠加和的值(舍去进位)作为哈希地址</p></blockquote> <ul><li>除留余数法</li></ul> <blockquote><p>预先设置一个树p,然后对关键字进行取余运算。即地址为 key mod p</p></blockquote> <h3 id="_10-3-如何解决哈希冲突"><a href="#_10-3-如何解决哈希冲突" class="header-anchor">#</a> 10-3 如何解决哈希冲突</h3> <blockquote><p>出现冲突，如何解决，一般有两种方法</p></blockquote> <ul><li>第一，开发定址法</li></ul> <blockquote><p>当一个关键字和另一个关键字发生冲突时，使用某种探测技术在哈希表中形成一个探测序列，然后沿着这个探测序列依次查下去，碰到一个空单元时，则插入其中</p></blockquote> <blockquote><p><b>常用的探测方法是线性探测法：</b>比如一组关键字{12,13,25,23},采用的哈希函数为key mod 11,但插入12,13,25时可以直接插入，地址分别为1、2、3；而当插入23时，哈希地址为23 mod 11 = 1;然而，地址1已经被占用，因此沿着地址1依次往下探测，直到探测到地址4，发现为空，则将23插入其中。</p></blockquote> <ul><li>第二，链地址法</li></ul> <blockquote><p>将哈希地址相同的记录存储在一张线性链表中<br>
+哈希表相对于其他数据结构有很多优势，它可以提供非常快速插入-删除-查找操作，无论多少数据，插入和删除值需要接近常量的时间。在查找方面，哈希表的速度比树还快，基本可以瞬间查找到想要的元素。<br>
+哈希表也有一些不足，哈希表中的数据是没有顺序概念的，所以不能1⃣以一种固定的方式来遍历其中的元素。在数据处理顺序敏感问题时，选择哈希表并不是一个好的处理方法。同时，哈希表的key是不允许重复，在重复性非常高的数据中，哈希表也不是一个好的选择。</p></blockquote> <h3 id="_10-4-哈希表的基本操作"><a href="#_10-4-哈希表的基本操作" class="header-anchor">#</a> 10-4 哈希表的基本操作</h3> <blockquote><p>在很多高级语言中，哈希函数、哈希冲突都已经在底层完成了黑盒化处理，是不需要自己设计的，也就是说，哈希表完成了关键字到地址的映射，可以在常数级时间复杂度内通过关键字查找到数据。</p></blockquote> <blockquote><p>哈希表中的增加和删除数据操作，不涉及增删后对数据的挪移问题(数组需要考虑)，因此处理就可以了<br>
+哈希表查找的细节过程是：对于给定的key,通过哈希函数计算哈希地址H(key)</p></blockquote> <ul><li>如果哈希地址对应的值为空，则查找不成功</li> <li>反之，则查找成功</li></ul> <blockquote><p>虽然哈希表查找的细节过程还比较麻烦，但是因为一些高级语言的黑盒化处理，可以不需要关注这些</p></blockquote> <h3 id="_10-5-哈希表的案例"><a href="#_10-5-哈希表的案例" class="header-anchor">#</a> 10-5 哈希表的案例</h3> <blockquote><p>例一：将关键序列{7,8,30,11,18,9,14}存储到哈希表中，哈希函数H(key) = (key*3)%7,处理冲突采用线性探测法</p></blockquote> <ul><li>1.首先，我们尝试建立哈希表，求出这个哈希地址</li></ul> <div class="language- extra-class"><pre class="language-text"><code>  H (7) = (7 * 3) % 7 = 0
+
+  H (8) = (8 * 3) % 7 = 3
+
+  H (30) = 6
+
+  H (11) = 5
+
+  H (18) = 5
+
+  H (9) = 6
+
+  H (14) = 0
+</code></pre></div><ul><li>2.按照关键字顺序依次向哈希表中填入，发生冲突后按照‘线性探测’探测到第一个空位置填入</li> <li>3.接着，有了这个表之后，我们再看一下查找流程</li> <li>查找 7。输入 7，计算得到 H (7) = 0，根据哈希表，在 0 的位置，得到结果为 7，跟待匹配的关键字一样，则完成查找</li> <li>查找 18。输入 18，计算得到 H (18) = 5，根据哈希表，在 5 的位置，得到结果为 11，跟待匹配的关键字不一样（11 不等于 18）。因此，往后挪移一位，在 6 的位置，得到结果为 30，跟待匹配的关键字不一样（11 不等于 30）。因此，继续往后挪移一位，在 7 的位置，得到结果为 18，跟待匹配的关键字一样，完成查找</li></ul> <blockquote><p>例二：假设一个在线系统，可以实时接收用户提交的字符串关键字，并实时返回给用户累积至今这个关键字被提交的次数<br>
+例如，用户输入‘abc’,系统返回1，再输入‘jk’，系统返回1；用户再输入‘abc’,系统返回2，再输入‘abc’,系统返回3</p></blockquote> <ul><li>一种解决方法是：用一个数组保存用户提交过的所有关键字，收到新关键字后，插入到数组中，并统计关键字出现的次数</li></ul> <blockquote><p>根据数组知识可以计算出，插入到最后的动作，时间复杂度为O(1).但统计出现次数必须要全部数据遍历一遍，时间复杂度为O(n),随着数据越多，时间就会越长，这不是一个明智的方法。</p></blockquote> <ul><li>一种是采用哈希表：可以利用哈希表的新增、查找常数级时间复杂度，在O(1)时间复杂度内完成相应。预先定义好哈希表后(可以采用 Map &lt; Integer, Integer &gt; d = new HashMap &lt;&gt; (); ）对于关键字（用变量 key_str 保存），判断 d 中是否存在 key_str 的记录.</li> <li>1.如果存在，则把它对应的value(记录频次)加1</li> <li>2.如果不存在，则把它添加到d中，对应的 value 赋值为 1。最后，打印处 key_str 对应的 value，即累积出现的频次</li></ul> <div class="language- extra-class"><pre class="language-text"><code> if(d.containsKey(key_str)){
+   d.push(key_str,d.get(key_str) + 1)
+ }else{
+   d.push(key_str,1)
+ }
+ doucument.write(d.get(key_str))
+
+</code></pre></div><h3 id="_10-6-总结"><a href="#_10-6-总结" class="header-anchor">#</a> 10-6 总结</h3> <ul><li>哈希表有很多独特的优点，不论哈希表中多少数据，查找、插入、删除都只需要接近常量时间，即O(1)的时间级</li> <li>哈希表运算非常快，在计算机程序中，如果需要一秒钟内查找上千条数据通常使用哈希表，哈希表速度明显比树快。哈希表不仅速度快，编程实现也相对容易。如果不需要有遍历数据，并且可以提前预测数据量大小，那么哈希表在速度和易用性方面 是无与伦比的</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/senior-js/algorithm/data-structure/data-9.html" class="prev">
+        9.树和二叉树：如何实现增删改查
+      </a></span> <span class="next"><a href="/senior-js/algorithm/training/q-1.html">
+        第一题
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.381556e0.js" defer></script><script src="/assets/js/2.cff21c2a.js" defer></script><script src="/assets/js/11.785dc606.js" defer></script>
+  </body>
+</html>
