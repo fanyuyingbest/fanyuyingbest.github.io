@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>从 0 开始配置 webpach4.0 | 一只无聊的柠檬</title>
+    <meta name="description" content="">
+    <meta name="generator" content="VuePress 1.4.0">
+    <link rel="icon" href="/img/logo.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.3c3b5dfb.css" as="style"><link rel="preload" href="/assets/js/app.a8254d4e.js" as="script"><link rel="preload" href="/assets/js/2.cff21c2a.js" as="script"><link rel="preload" href="/assets/js/7.638b176e.js" as="script"><link rel="prefetch" href="/assets/js/10.1ef3d16c.js"><link rel="prefetch" href="/assets/js/11.055e6f83.js"><link rel="prefetch" href="/assets/js/12.afadf4ed.js"><link rel="prefetch" href="/assets/js/13.54f5db56.js"><link rel="prefetch" href="/assets/js/14.0552eb89.js"><link rel="prefetch" href="/assets/js/15.439b8ec4.js"><link rel="prefetch" href="/assets/js/16.45d334e7.js"><link rel="prefetch" href="/assets/js/17.ee88e778.js"><link rel="prefetch" href="/assets/js/18.485889d4.js"><link rel="prefetch" href="/assets/js/19.1a3bd223.js"><link rel="prefetch" href="/assets/js/20.c2d8d627.js"><link rel="prefetch" href="/assets/js/21.5e9af55c.js"><link rel="prefetch" href="/assets/js/22.8d3de896.js"><link rel="prefetch" href="/assets/js/23.c6be11b6.js"><link rel="prefetch" href="/assets/js/24.4953e3aa.js"><link rel="prefetch" href="/assets/js/25.06bc92d4.js"><link rel="prefetch" href="/assets/js/26.8f299b42.js"><link rel="prefetch" href="/assets/js/27.88f04b62.js"><link rel="prefetch" href="/assets/js/28.bcf2280b.js"><link rel="prefetch" href="/assets/js/29.e04135c1.js"><link rel="prefetch" href="/assets/js/3.01d9f5e2.js"><link rel="prefetch" href="/assets/js/30.4cb4c81b.js"><link rel="prefetch" href="/assets/js/31.5df9bb56.js"><link rel="prefetch" href="/assets/js/32.87134fc7.js"><link rel="prefetch" href="/assets/js/33.a1d4b45f.js"><link rel="prefetch" href="/assets/js/34.a11070a9.js"><link rel="prefetch" href="/assets/js/35.d1f27671.js"><link rel="prefetch" href="/assets/js/36.d0be8650.js"><link rel="prefetch" href="/assets/js/37.1f4f4af9.js"><link rel="prefetch" href="/assets/js/38.26b576f1.js"><link rel="prefetch" href="/assets/js/4.d4d02f50.js"><link rel="prefetch" href="/assets/js/5.07bd0c0a.js"><link rel="prefetch" href="/assets/js/6.da4003b6.js"><link rel="prefetch" href="/assets/js/8.18815077.js"><link rel="prefetch" href="/assets/js/9.d19fda0c.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.3c3b5dfb.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">一只无聊的柠檬</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/senior-js/guide/" class="nav-link">
+  工作总结
+</a></div><div class="nav-item"><a href="/senior-js/algorithm/" class="nav-link router-link-active">
+  自学记录
+</a></div><div class="nav-item"><a href="/senior-js/readDoc/" class="nav-link">
+  读书笔记
+</a></div><div class="nav-item"><a href="/senior-js/other/" class="nav-link">
+  杂谈
+</a></div><div class="nav-item"><a href="https://github.com/fanyuyingbest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/senior-js/guide/" class="nav-link">
+  工作总结
+</a></div><div class="nav-item"><a href="/senior-js/algorithm/" class="nav-link router-link-active">
+  自学记录
+</a></div><div class="nav-item"><a href="/senior-js/readDoc/" class="nav-link">
+  读书笔记
+</a></div><div class="nav-item"><a href="/senior-js/other/" class="nav-link">
+  杂谈
+</a></div><div class="nav-item"><a href="https://github.com/fanyuyingbest" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/senior-js/algorithm/" class="sidebar-link">知识体系梳理</a></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>2020年</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/senior-js/algorithm/2020/05-07-markdown.html" class="sidebar-link">markdown常用语法</a></li><li><a href="/senior-js/algorithm/2020/12-22-webpack.html" class="active sidebar-link">从 0 开始配置 webpach4.0</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/senior-js/algorithm/2020/12-22-webpack.html#_1-webpack-的演化" class="sidebar-link">1.webpack 的演化</a></li><li class="sidebar-sub-header"><a href="/senior-js/algorithm/2020/12-22-webpack.html#_2-commonjs-amd" class="sidebar-link">2.CommonJS--&gt; AMD</a></li><li class="sidebar-sub-header"><a href="/senior-js/algorithm/2020/12-22-webpack.html#_3-上手一个简单的-spa-应用" class="sidebar-link">3.上手一个简单的 SPA 应用</a></li><li class="sidebar-sub-header"><a href="/senior-js/algorithm/2020/12-22-webpack.html#_4-进阶配置" class="sidebar-link">4.进阶配置</a></li><li class="sidebar-sub-header"><a href="/senior-js/algorithm/2020/12-22-webpack.html#_5-使用-webpack-打包多页面应用-multiple-page-application" class="sidebar-link">5 使用 webpack 打包多页面应用(Multiple-Page Application)</a></li><li class="sidebar-sub-header"><a href="/senior-js/algorithm/2020/12-22-webpack.html#_6-总结" class="sidebar-link">6.总结</a></li></ul></li><li><a href="/senior-js/algorithm/2020/12-30-vuepanel.html" class="sidebar-link">vue 撸后台</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/senior-js/algorithm/data-structure/" class="sidebar-heading clickable"><span>数据结构-拉钩教育</span> <span class="arrow right"></span></a> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><a href="/senior-js/algorithm/training/" class="sidebar-heading clickable"><span>每日一题</span> <span class="arrow right"></span></a> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="从-0-开始配置-webpach4-0"><a href="#从-0-开始配置-webpach4-0" class="header-anchor">#</a> 从 0 开始配置 webpach4.0</h1> <h2 id="_1-webpack-的演化"><a href="#_1-webpack-的演化" class="header-anchor">#</a> 1.webpack 的演化</h2> <h2 id="_2-commonjs-amd"><a href="#_2-commonjs-amd" class="header-anchor">#</a> 2.CommonJS--&gt; AMD</h2> <blockquote><p>CommonJS 在浏览器内并不适用，因为 require() 的返回是同步的，意味着有多个依赖的话需要一个一个依次下载，阻塞了 js 脚本执行
+所以在 CommonJS 的基础上定义了 AMD,使用异步回调语法并行下载多个依赖</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  require(['./b','./c'],function(b,c){
+    var n = b.square(2)
+    console.log(c)
+  })
+</code></pre></div><blockquote><p>相应的导出语言可以这样写</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> define(['./d'],function(d){
+   return d.PI
+ })
+</code></pre></div><p>define() 和 require() 的区别是，define()必须要在回调函数中返回一个值作为导出的内容；require()不需要导出内容，因此回调函数不需要返回值，也无法作为被依赖项被其他文件导入，因此用于入口文件，比如页面加载 a.js</p> <div class="language- extra-class"><pre class="language-text"><code> &lt;script src=&quot;js/require.js&quot; data-main=&quot;js/a&quot;&gt;&lt;/script&gt;
+</code></pre></div><h2 id="_3-上手一个简单的-spa-应用"><a href="#_3-上手一个简单的-spa-应用" class="header-anchor">#</a> 3.上手一个简单的 SPA 应用</h2> <p style="color:red;">PS:在写下 new webpack.XXXX 时，总是会报 XXXX undfine,主要原因是在引入时，写成了 const {webpack} = requrie('webpack)
+只要去掉 webpack 外面的打括号就可以了</p> <h3 id="_3-1-安装-node"><a href="#_3-1-安装-node" class="header-anchor">#</a> 3-1 安装 node</h3> <h3 id="_3-2-初始化一个项目"><a href="#_3-2-初始化一个项目" class="header-anchor">#</a> 3-2 初始化一个项目</h3> <ul><li>1.创建一个文件夹，然后在文件夹内搭建项目，先看一下目录结构</li></ul> <div class="language- extra-class"><pre class="language-text"><code> |-- dist                 打包输出目录，只需要部署该文件夹到生产环境
+ |-- package.json         项目配置信息
+ |-- node_module          npm 安装的依赖包
+ |-- src                  源代码
+ |  |-- components        可复用的模块
+ |  |-- index.html        入口 html
+ |  |-- index.js          入口 js
+ |  |-- shared            公共函数库
+ |  |-- views             页面
+ |-- webpack.config.js    webpack配置文件
+</code></pre></div><ul><li>2.初始化项目 npm init</li></ul> <h3 id="_3-3-给项目装上-eslint-代码检测工具"><a href="#_3-3-给项目装上-eslint-代码检测工具" class="header-anchor">#</a> 3-3.给项目装上 eslint 代码检测工具</h3> <div class="language- extra-class"><pre class="language-text"><code> npm install eslint eslint-config-enough babel-eslint eslint-loader --save-dev
+</code></pre></div><p>npm install 可以同时安装多个包，中间用空格隔开即可<br></p> <p>--save-dev 会将安装包和版本号记录到 package.json 中的 devDependencies 对象中<br></p> <p>--save 会记录到 dependencies 对象中<br></p> <p>我们在提交 git 代码时，会将 node_module 在.gitignore 文件中忽略，在提交到公共库中后，其他人可以直接根据 package.json 配置文件直接执行 npm install <br></p> <p>它会根据 devDependencies 和 dependencies 字段，把记录的包的相应版本下载下来<br></p> <p>这里的 eslint-config-enough 是配置文件，它规定了代码规范，如果需要它生效，需要在 package.json 文件中添加内容：</p> <div class="language- extra-class"><pre class="language-text"><code> {
+   &quot;eslintConfig&quot;:{
+     &quot;extends&quot;:&quot;enough&quot;,
+     &quot;env&quot;:{
+       &quot;browser&quot;:true,
+       &quot;node&quot;:true
+     }
+   }
+ }
+
+</code></pre></div><p>banel-eslint 是 eslint-config-enough 依赖的语法解析库，替代 eslint 默认的解析库以支持还未标准化的语言<br></p> <p>eslint-loader 用于在 webpack 编译的时候检查代码，如果有错误，webpack 会报错<br></p> <p>项目里安装了 eslint 还没用，我们的 IDE 和编辑器也需要安装 eslint 插件支持<br></p> <h3 id="_3-4-写几个页面"><a href="#_3-4-写几个页面" class="header-anchor">#</a> 3-4 写几个页面</h3> <ul><li>编辑 src/index.html 文件
+<blockquote><p>写简单的结构，html body head 等标签
+不需要写 script 标签，webpack 会自动打包加入</p></blockquote></li></ul> <h3 id="_3-5-安装-webpack-和-babel"><a href="#_3-5-安装-webpack-和-babel" class="header-anchor">#</a> 3-5 安装 webpack 和 babel</h3> <ul><li>将 webpack 和它的插件安装到项目中</li> <li>webpack 是 webpack 的核心库</li> <li>webpack-cli 是 webpack 命令行</li> <li>webpack-serve 是 webpack 用来开发调试的服务器，有了它就不用配置 nginx 了</li> <li>html-webpack-plugin,html-loader,css-loader,style-loader 等是打包 html，css 文件</li> <li>file-loader,url-loader 是打包二进制文件插件</li></ul> <div class="language- extra-class"><pre class="language-text"><code> npm install webpack webpack-cli webpack-serve html-webpack-plugin html-loader css-loader style-loader file-loader url-loader --save-dev
+</code></pre></div><p>为了让不支持 ES6 的浏览器可以正常运行，需要安装 babel，它会将 ES6 源代码转化为 ES5</p> <div class="language- extra-class"><pre class="language-text"><code> npm install babel-core babel-preset-env babel-loader --save-dev
+</code></pre></div><ul><li>babel-core 是 babel 的核心编译器，babel-preset-env 是一个配置文件，可以转换 ES2017..到 ES5</li> <li>babel-preset-env 打包不生效，需要在配置文件中加入 babel 配置：</li></ul> <div class="language- extra-class"><pre class="language-text"><code> {
+   &quot;babel&quot;:{
+     &quot;presets&quot;:[&quot;env&quot;]
+   }
+ }
+</code></pre></div><h3 id="_3-6-配置-webpack"><a href="#_3-6-配置-webpack" class="header-anchor">#</a> 3-6 配置 webpack</h3> <blockquote><p>配置 webpack 需要创建 webpack.config.js 文件，由于该文件是在 node 中运行，所以不支持 ES6 语法</p></blockquote> <h3 id="_3-7-运行项目"><a href="#_3-7-运行项目" class="header-anchor">#</a> 3-7 运行项目</h3> <p>配置完成，开始运行项目：</p> <ul><li>测试环境 webpack-serve</li></ul> <div class="language- extra-class"><pre class="language-text"><code> ./node_modules/.bin/webpack-serve webpack.config.js
+</code></pre></div><blockquote><p>不同平台的配置命令不同，windows 自行搜索</p></blockquote> <ul><li>生产环境 webpack-serve</li></ul> <div class="language- extra-class"><pre class="language-text"><code> ./node_modules/.bin/webpack-cli
+</code></pre></div><blockquote><p>会生成对应 dist 文件夹</p></blockquote> <blockquote><p>执行长命令比较麻烦，可以在 package.json 中的 javascript 中配置对应的命令</p></blockquote> <h2 id="_4-进阶配置"><a href="#_4-进阶配置" class="header-anchor">#</a> 4.进阶配置</h2> <h3 id="_4-1-设置静态资源的-url-路径前缀"><a href="#_4-1-设置静态资源的-url-路径前缀" class="header-anchor">#</a> 4-1 设置静态资源的 url 路径前缀</h3> <ul><li>1.给资源文件加一个前缀，先修改 webpack 的配置</li></ul> <div class="language- extra-class"><pre class="language-text"><code> {
+   output:{
+     publicPath:'/assets/'
+   }
+ }
+</code></pre></div><ul><li>2.修改 webpack-serve</li></ul> <div class="language- extra-class"><pre class="language-text"><code> if(dev){
+   module.exports.serve = {
+     port:8080,
+     host:'0.0.0.0',
+     dev:{
+       publicPath:'/assets/'
+     },
+     add: app =&gt; {
+       app.use(convert(history({
+         index:'/assets/'
+       })))
+     }
+   }
+ }
+</code></pre></div><h3 id="_4-2-各个页面分开打包"><a href="#_4-2-各个页面分开打包" class="header-anchor">#</a> 4-2 各个页面分开打包</h3> <ul><li><p>webpack 可以使用异步加载文件方式引用模版，可以使用 async/await 和 dynamic import 来实现</p></li> <li><p>加载 path 路径页面，使用 async/await 语法，动态加载页面，创建页面实例，调用方法加载到页面</p></li> <li><p>regenerator-runtime 是 regenerator 的运行库，babel 通过插件 transform-regenerator 使用 regenerator 将 generator 函数和 async/await 语法转化为 ES5，需要运行库才能正确执行</p></li> <li><p>因为 import() 没有正式进入标准，需要使用 syntax-dynamic-import 来解析语法，我们安装 babel-preset-stage-2</p></li></ul> <div class="language- extra-class"><pre class="language-text"><code> npm install regenerator-runtime babel-preset-stage-2 --save-dev
+</code></pre></div><ul><li>package.json 也需要做修改：</li></ul> <div class="language- extra-class"><pre class="language-text"><code> {
+   &quot;babel&quot;:{
+     &quot;presets&quot;:[
+       &quot;env&quot;,
+       &quot;stage-2&quot;
+     ]
+   }
+ }
+
+</code></pre></div><ul><li>然后修改 webpack 的配置：</li></ul> <div class="language- extra-class"><pre class="language-text"><code> {
+   // 代码中的资源文件会合并为一个包，我们称这个包为chunk,每个chunk里面又很多的modules,chunkFilename用来配置这个chunk 输出文件名
+   // [chunkhash]是这个chunk的hash值，文件会时刻发生变化
+   // 还有一个占位符，编译时每个chunk会有一个id
+   output:{
+     chunkFilename:'[chunkhash].js'
+   }
+ }
+</code></pre></div><h3 id="_4-3-第三方库和业务代码分开打包"><a href="#_4-3-第三方库和业务代码分开打包" class="header-anchor">#</a> 4-3 第三方库和业务代码分开打包</h3> <blockquote><p>分开打包，在更新业务代码时，可以借助浏览器缓存，不需要再去下载第三方库。webpack4 的最大改进就是引用 chunk 自动拆分，满足以下条件，chunk 就会被拆分</p></blockquote> <ul><li>新的 chunk 能被复用，或者模块来自 node_modules 目录</li> <li>新的 chunk 大于 30k(min+gz 压缩前)</li> <li>按需加载 chunk 的并发请求数量小于等于 5 个</li> <li>页面初始化加载时的并发请求数量小于等于 3 个</li></ul> <blockquote><p>分开打包注意以下几个参数即可</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> plugins:[
+   new webpack.HashedModuleIdsPlugin()
+ ],
+ optimization: {
+   // chunk文件名发生改变时，会导致引用这个chunk文件也发生变化
+   // runtimeChunk设置为true时，webpack会将chunk文件名全部存到一个单独的chunk中
+   // 这样更新一个文件只会影响它所在的chunk和runtimeChunk,避免引用这个chunk的文件也发生改变
+
+   runtimeChunk:true,
+   splitChunks: {
+     // 默认entry的chunk不会被拆分
+     // 使用了html-wenpack-plugin 动态插入&lt;script&gt;标签，entry被拆成多个chunk也能自动被插入到html中
+     // 将chunks配置为all,就把entry chunk也拆分了
+
+     chunks:'all'
+   }
+ }
+</code></pre></div><h3 id="_4-4-输出在-entry-文件的-hash"><a href="#_4-4-输出在-entry-文件的-hash" class="header-anchor">#</a> 4-4 输出在 entry 文件的 hash</h3> <blockquote><p>chunkFilename 使用[chunkhash]防止浏览器读取错误缓存，那么 entry 同样需要加上 hash,使用 webpack-serve 启动开发环境时，entry 是没有[chunkhash]的，用了会报错，所以只有在 wenpack-cli 时使用[chunkhash]</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> output: {
+   filename:dev ? '[name].js' : '[chunkhash].js'
+ }
+</code></pre></div><blockquote><p>每个 entry 可以定义由多个 module 组成，这些 module 可以依次执行</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> {
+   entry: {
+     main: './src/index.js',
+     wendor: ['jquery','loadsh']
+   }
+ }
+</code></pre></div><blockquote><p>entry 引用规则和 import 一致，会寻找 node_module 包，然后结合 CommonsChunkPlugin 把 vendor 定义的 module 从业务代码中分离打包出一个单独的 chunk</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> {
+   entry: {
+     main: ['./src/index.js']
+   }
+ }
+
+</code></pre></div><blockquote><p>webpack 会给这个 entry 指定名字为 main,[name]就是 entry 的名字；[hash]占位符，这个是整个编译过程的总 hash 值，但不是单文件的 hash 值，项目中任何一个文件的变动，都会改变这个 hash 值，此处的[hash]占位符是始终存在的，我们 不希望修改一个文件就改变所有的输出文件，这个不利于浏览器的缓存，所以这个 hash 意义不大</p></blockquote> <h3 id="_4-5-开发环境关闭-performance-hints"><a href="#_4-5-开发环境关闭-performance-hints" class="header-anchor">#</a> 4-5 开发环境关闭 performance.hints</h3> <blockquote><p>测试环境会报 warning,建议每个输出的 js 文件大小不要超过 250k，但开发环境包含了 sourcemap 并且代码压缩一般都会超过这个大小，所以需要将这个 waining 关闭，webpack 配置加入：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> {
+   performance: {
+     hints:dev ? false : 'warning'
+   }
+ }
+</code></pre></div><h3 id="_4-6-配置-favicon-png"><a href="#_4-6-配置-favicon-png" class="header-anchor">#</a> 4-6 配置 favicon.png</h3> <blockquote><p>在 src 目录中放一张 favicon.png,然后在 src/index.html 的 head 中插入</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; href=&quot;favicon.png&quot;&gt;
+</code></pre></div><blockquote><p>修改 webpack 配置</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> mudule: {
+   rules: [
+     test
+   ]
+ }
+</code></pre></div><h3 id="_4-7-开发环境允许其他电脑访问"><a href="#_4-7-开发环境允许其他电脑访问" class="header-anchor">#</a> 4-7 开发环境允许其他电脑访问</h3> <blockquote><p>internal-ip</p></blockquote> <h3 id="_4-8-打包时自定义部分参数"><a href="#_4-8-打包时自定义部分参数" class="header-anchor">#</a> 4-8 打包时自定义部分参数</h3> <blockquote><p>例如：在 webpack-serve 写死监听接口，会导致端口冲突，一般会去 webpack.config.js 去暴力修改配置</p></blockquote> <blockquote><p>这种情况一般只影响测试换，生产环境配置不同，生产环境可能需要配置一个 CDN 地址</p></blockquote> <ul><li>default.js 生产环境</li></ul> <div class="language- extra-class"><pre class="language-text"><code> module.exports = {
+   publicPath: 'http://cdn.example.com/assets/'
+ }
+</code></pre></div><ul><li>dev.js 默认开发环境</li></ul> <div class="language- extra-class"><pre class="language-text"><code> mudule.exports = {
+  publicPath:'/assets/',
+  serve: {
+    port: 8089
+  }
+ }
+
+</code></pre></div><ul><li>local.js 个人本地开发环境修改部分参数</li></ul> <div class="language- extra-class"><pre class="language-text"><code> const config  = require('./dev')
+ config.serve.port = 8087
+ mudule.exports = config
+</code></pre></div><ul><li>webpack 修改配置
+<blockquote><p>这里关键是 npm run 传进来的自定义参数可以通过 process.env.npm<em>config</em>*获得，参数中的-会被转成_
+还有一点，不要把个人的配置文件提交到 git,所以在配置文件中忽略</p></blockquote></li></ul> <h3 id="_4-9-webpack-serve-处理带后缀名的文件的特殊规则"><a href="#_4-9-webpack-serve-处理带后缀名的文件的特殊规则" class="header-anchor">#</a> 4-9 webpack-serve 处理带后缀名的文件的特殊规则</h3> <blockquote><p>当处理带有后缀名的请求，connect-history-api-fallback 会认为它是一个实际存在的文件，找不到时不会 fallback 到 html 文件，而是返回 404
+要处理这种情况，需要将配置项 disableDotRule:true 的规则禁用，当访问文件不存在时可以 fallback 到 index.html 文件中</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> module.exports = {
+   add: app =&gt; {
+     app.use(convert(history({
+       disableDotRulr: true,
+       htmlAcceptHeaders: ['text/html','application/xhtml+xml']
+     })))
+   }
+ }
+
+</code></pre></div><h3 id="_4-10-代码中插入环境变量"><a href="#_4-10-代码中插入环境变量" class="header-anchor">#</a> 4-10 代码中插入环境变量</h3> <blockquote><p>业务代码中，有些变量在开发环境和生产环境是不一样的，比如域名，api 地址，开发环境还需要打印调试信息等</p></blockquote> <blockquote><p>我们可以使用 DefinePlugin 插件在打包时往代码中插入需要的环境变量</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  new webpack.DefinePlugin({
+    DEBUG:dev,
+    VERSION: JSON.stringify(pkgInfo.version),
+    CONFIG:  JSON.stringify(config.runtimeConfig)
+  })
+</code></pre></div><blockquote><p>DefinePlugin 插件原理比较简单，如过在代码中写 consolo.log(DEBUG),它会做类似的处理：console.log(DEBUG).replace(&quot;DEBUG&quot;,true)
+最后生成 console.log(true)</p></blockquote> <p>需要注意的一点: 这里的 VERSION,如果我们不对 pkgInfo.version 做 JSON.stringify()处理，最后就会生成 console.log(1.0.0),做了转变后，才会将带上引号，webpack 在打包压缩时，会对代码做优化</p> <h3 id="_4-11-简化-import-路径"><a href="#_4-11-简化-import-路径" class="header-anchor">#</a> 4-11 简化 import 路径</h3> <blockquote><p>文件 a 引入文件 b 时，b 的路径相对于 a 的文件目录，如果 ab 文件在不同目录且 b 藏的比较深时，写起来就会比较麻烦</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> import b from '../../../components/b'
+</code></pre></div><blockquote><p>为了方便，我们可以定义一个路径别名</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> resolve: {
+   alias: {
+     '~': resolve(__dirname, 'src')
+   }
+ }
+</code></pre></div><blockquote><p>这样我们可以以 src 目录为基础路径来 import 文件了</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> import b form '~/components/b'
+</code></pre></div><blockquote><p>html 文件中 img 标签没办法使用这个功能，但是在 html-loader 中的一个 root 参数可以作为目录解析</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code>  root:resolve(__dirname,'src')
+
+  &lt;img src=&quot;/favicon.png&quot;&gt;
+</code></pre></div><blockquote><p>此时就不需要担心文件和文件路径的问题了
+但是此处会有一个问题，配置好 root 后，html-loader 会将注释代码 里面的内容也解析出来，要注意一下</p></blockquote> <h3 id="_4-12-优化-babel-编译后的代码性能"><a href="#_4-12-优化-babel-编译后的代码性能" class="header-anchor">#</a> 4-12 优化 babel 编译后的代码性能</h3> <blockquote><p>babel 编译后的代码一般会造成性能损失，babel 提供了一个 loose 的选项，编译后的代码不需要完全遵守 ES6,简化编译后的代码，会提高代码的执行效率</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> &quot;babel&quot;: {
+    &quot;presets&quot;: [
+      [
+        &quot;env&quot;,
+        {
+          &quot;loose&quot;: true
+        }
+      ],
+      &quot;stage-2&quot;
+    ]
+  },
+</code></pre></div><blockquote><p>注意：这样做就有兼容性的风险，导致源码的执行结果和编译后的结果不一致，如果代码没有遇到实际的效率瓶颈，尽量不要使用该模式</p></blockquote> <h3 id="_4-13-使用-webpack-自带的-es6-模块处理功能"><a href="#_4-13-使用-webpack-自带的-es6-模块处理功能" class="header-anchor">#</a> 4-13 使用 webpack 自带的 ES6 模块处理功能</h3> <blockquote><p>按照目前的配置，babel 会把 ES6 模块自定义转化为 CommonJS 自定义，但是 webpack 自己可以处理 import 和 export，并且 webpack 处理 import 时会做代码优化，把没用到的代码删除，因此我们可以通过 babel 提供的 module：false 选项把 commonjs 模块功能关掉</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> &quot;babel&quot;: {
+    &quot;presets&quot;: [
+      [
+        &quot;env&quot;,
+        {
+          &quot;modules&quot;: false
+        }
+      ],
+      &quot;stage-2&quot;
+    ]
+  },
+</code></pre></div><h3 id="_4-15-使用-autoprefixer-自动创建-css-的-vendor-prefixes"><a href="#_4-15-使用-autoprefixer-自动创建-css-的-vendor-prefixes" class="header-anchor">#</a> 4-15 使用 autoprefixer 自动创建 css 的 vendor prefixes</h3> <blockquote><p>css 有一个麻烦的问题，比较新的 css 属性在各个浏览器中加前缀，我们可以使用 autoprefixer 工具自动创建这些浏览器规则：</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> :fullscreen a{
+   display: flex
+ }
+</code></pre></div><blockquote><p>autoprefixer 就会自动编译为</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> :webpack-full-screen a{
+   display: -webkit-box;
+   display: flex
+ }
+ :-moz-full-screen a {
+    display: flex
+  }
+  :-ms-fullscreen a {
+      display: -ms-flexbox;
+      display: flex
+  }
+  :fullscreen a {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex
+  }
+</code></pre></div><blockquote><p>首先，安装</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> npm install postcss-loader autoprefixer --save-dev
+</code></pre></div><blockquote><p>autoprefixer 是一个 postcss 插件，所以要安装 postcss 的 webpack loader；修改一下 webpack 的 css rule</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> {
+    // 匹配css文件
+    test: /\.css$/,
+    use: ['css-loader', 'style-loader', 'postcss-loader']
+  },
+</code></pre></div><blockquote><p>然后创建文件 postcss.config.js</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> module.exports = {
+   plugins:[
+     require('autoprefixer')()
+   ]
+ }
+</code></pre></div><h2 id="_5-使用-webpack-打包多页面应用-multiple-page-application"><a href="#_5-使用-webpack-打包多页面应用-multiple-page-application" class="header-anchor">#</a> 5 使用 webpack 打包多页面应用(Multiple-Page Application)</h2> <blockquote><p>多页面应用也可以用 webpack 打包，MPA 意味着，并不是每一个单一的 html 入口和 js 入口，而是每一个页面对应一个 html 和多个 js，所以可以将结构改为</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> |--- dist
+ |--- package.json
+ |--- node_modules
+ |--- src
+ |    |--- components
+ |    |--- shared
+ |    |--- favicon.ico
+ |    |-- pages                          页面放这里
+ |          |--- foo                     编译后生成 http://localhost:8080/foo.html
+ |          |     |--- index.html
+ |          |     |--- index.js
+ |          |     |--- style.css
+ |          |     |--- pic.png
+ |          |--- bar                     编译后生成 http://localhost:8080/bar.html
+ |                |--- index.html
+ |                |--- index.js
+ |                |--- style.css
+ |                |--- baz               编译后生成 http://localhost:8080/bar/baz.html
+ |                      |--- index.html
+ |                      |--- index.js
+ |                      |--- style.css
+ |--- webpack.config.js
+
+</code></pre></div><blockquote><p>这里的每个页面都是从<code>&lt;!DOCTYPE html&gt;</code> 开头 到 <code>&lt;/html&gt;</code> 结束的页面，这里的文件都是用 html-webpack-plugin 处理，index.js 是每个页面的业务逻辑，作为每个页面的入口 js 配置到 entry 中，这里需要 glob 库来把这些文件都筛选出来批量处理，为了使 optimization.splitChunks 和 optimization.runtimeChunk 功能，这里需要安装几个 webpack 插件</p></blockquote> <div class="language- extra-class"><pre class="language-text"><code> npm install glob html-webpack-include-sibling-chunks-plugin uglifyjs-webpack-plugin mini-css-extract-plugin optimize-css-assets-webpack-plugin --save-dev
+</code></pre></div><blockquote><p>webpack 需要修改,entry 和 htmlPlugins 也会遍历 pages 目录生成</p></blockquote> <blockquote><p>在开发环境中，为了在修改 html 文件后，网页可以自动刷新，还可以把 html 文件加入到 entry 中，但是不要在生成环境这样处理</p></blockquote> <h2 id="_6-总结"><a href="#_6-总结" class="header-anchor">#</a> 6.总结</h2> <blockquote><p>这次主要是根据 <a href="https://juejin.cn/post/6844903650939109384#heading-25" target="_blank" rel="noopener noreferrer">查看原文章<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>
+做参考，对 webpack 做了一次从零开始的配置，如果需要编译 react/vue 时，无非是安装一些 loader 和 plugin</p></blockquote></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/senior-js/algorithm/2020/05-07-markdown.html" class="prev">
+        markdown常用语法
+      </a></span> <span class="next"><a href="/senior-js/algorithm/2020/12-30-vuepanel.html">
+        vue 撸后台
+      </a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.a8254d4e.js" defer></script><script src="/assets/js/2.cff21c2a.js" defer></script><script src="/assets/js/7.638b176e.js" defer></script>
+  </body>
+</html>
